@@ -1,4 +1,3 @@
-require("dotenv").config();
 import { Deck, _GlobeView as GlobeView } from "@deck.gl/core";
 import {
   ScatterplotLayer,
@@ -14,7 +13,8 @@ import { MapboxOverlay } from "@deck.gl/mapbox";
 
 import mapboxgl from "mapbox-gl";
 import MapboxLanguage from "@mapbox/mapbox-gl-language";
-mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
+const { MAPBOX_TOKEN } = require("../config");
+mapboxgl.accessToken = MAPBOX_TOKEN;
 
 const deckgl = new Deck({
   parent: document.getElementById("container"),
